@@ -1,0 +1,55 @@
+ROS2_controller:
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+
+  # Position Controllers --------------------------------------
+  Front Left Lower_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: Front Left Lower
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  Front Left Upper_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: Front Left Upper
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  Front Left Shoulder_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: Front Left Shoulder
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  Front Right Lower_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: Front Right Lower
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  Front Right Upper_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: Front Right Upper
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  Front Right Shoulder_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: Front Right Shoulder
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  Back Left Lower_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: Back Left Lower
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  Back Left Upper_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: Back Left Upper
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  Back Left Shoulder_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: Back Left Shoulder
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  Back Right Lower_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: Back Right Lower
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  Revolute 15_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: Revolute 15
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  Revolute 16_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: Revolute 16
+    pid: {p: 100.0, i: 0.01, d: 10.0}

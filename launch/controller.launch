@@ -1,0 +1,9 @@
+<launch>
+
+<rosparam file="$(find ROS2_description)/launch/controller.yaml" command="load"/>
+<node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="ROS2" args="Front Left Lower_position_controller Front Left Upper_position_controller Front Left Shoulder_position_controller Front Right Lower_position_controller Front Right Upper_position_controller Front Right Shoulder_position_controller Back Left Lower_position_controller Back Left Upper_position_controller Back Left Shoulder_position_controller Back Right Lower_position_controller Revolute 15_position_controller Revolute 16_position_controller joint_state_controller "/>
+<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
+  <remap from="/joint_states" to="/ROS2/joint_states"/>
+</node>
+
+</launch>

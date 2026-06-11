@@ -1,0 +1,472 @@
+<?xml version="1.0" ?>
+<robot name="ROS2" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find ROS2_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find ROS2_description)/urdf/ROS2.trans" />
+<xacro:include filename="$(find ROS2_description)/urdf/ROS2.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="0.04377718305742502 0.0644992505719806 0.07168633955671418" rpy="0 0 0"/>
+    <mass value="8.036922661444715"/>
+    <inertia ixx="0.136153" iyy="0.028457" izz="0.157927" ixy="-0.0" iyz="3.3e-05" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ROS2_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ROS2_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Front_Left_Foot_1">
+  <inertial>
+    <origin xyz="1.8153352240868337e-07 -1.2883260067098057e-07 -2.3300531548642311e-07" rpy="0 0 0"/>
+    <mass value="0.2630560248605875"/>
+    <inertia ixx="4.2e-05" iyy="4.2e-05" izz="4.2e-05" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.218777 0.15102 0.266299" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ROS2_description/meshes/Front_Left_Foot_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.218777 0.15102 0.266299" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ROS2_description/meshes/Front_Left_Foot_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Front_Left_Lower_1">
+  <inertial>
+    <origin xyz="0.018335862843839562 -2.3484038110560546e-05 -0.07786442860939159" rpy="0 0 0"/>
+    <mass value="0.985488360252137"/>
+    <inertia ixx="0.003602" iyy="0.00351" izz="0.000197" ixy="0.0" iyz="-2e-06" ixz="4.8e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.199777 0.15102 0.086299" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ROS2_description/meshes/Front_Left_Lower_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.199777 0.15102 0.086299" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ROS2_description/meshes/Front_Left_Lower_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Front_Left_Upper_1">
+  <inertial>
+    <origin xyz="0.05591916152253307 1.045558514392586e-05 -0.03303093353351165" rpy="0 0 0"/>
+    <mass value="2.3322194981471407"/>
+    <inertia ixx="0.008147" iyy="0.008238" izz="0.002009" ixy="-2e-06" iyz="-1e-06" ixz="0.00128"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.119777 0.15102 -0.071701" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ROS2_description/meshes/Front_Left_Upper_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.119777 0.15102 -0.071701" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ROS2_description/meshes/Front_Left_Upper_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Front_Left_Shoulder_1">
+  <inertial>
+    <origin xyz="0.004639396483922406 -0.03952203621148265 1.9251547041507222e-05" rpy="0 0 0"/>
+    <mass value="1.3447703130996655"/>
+    <inertia ixx="0.001329" iyy="0.000857" izz="0.00095" ixy="3.1e-05" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.096777 0.10552 -0.071701" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ROS2_description/meshes/Front_Left_Shoulder_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.096777 0.10552 -0.071701" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ROS2_description/meshes/Front_Left_Shoulder_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Front_Right_Foot_1">
+  <inertial>
+    <origin xyz="1.815335368138271e-07 -1.2883260061546942e-07 -2.330053124333098e-07" rpy="0 0 0"/>
+    <mass value="0.2630560248605875"/>
+    <inertia ixx="4.2e-05" iyy="4.2e-05" izz="4.2e-05" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.131223 0.15102 0.266299" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ROS2_description/meshes/Front_Right_Foot_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.131223 0.15102 0.266299" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ROS2_description/meshes/Front_Right_Foot_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Front_Right_Lower_1">
+  <inertial>
+    <origin xyz="-0.018335545094527048 -2.3508883741057973e-05 -0.077865949504784" rpy="0 0 0"/>
+    <mass value="0.985502752120821"/>
+    <inertia ixx="0.003602" iyy="0.00351" izz="0.000197" ixy="-0.0" iyz="-2e-06" ixz="-4.8e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.112223 0.15102 0.086299" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ROS2_description/meshes/Front_Right_Lower_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.112223 0.15102 0.086299" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ROS2_description/meshes/Front_Right_Lower_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Front_Right_Upper_1">
+  <inertial>
+    <origin xyz="-0.055918796518973066 1.0453934657206343e-05 -0.03303092294332154" rpy="0 0 0"/>
+    <mass value="2.332219546028488"/>
+    <inertia ixx="0.008147" iyy="0.008238" izz="0.002009" ixy="2e-06" iyz="-1e-06" ixz="-0.00128"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.032223 0.15102 -0.071701" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ROS2_description/meshes/Front_Right_Upper_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.032223 0.15102 -0.071701" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ROS2_description/meshes/Front_Right_Upper_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Fright_Right_Shoulder_1">
+  <inertial>
+    <origin xyz="-0.004639033314839549 -0.03952203577055696 1.9251393130317873e-05" rpy="0 0 0"/>
+    <mass value="1.3447703291432425"/>
+    <inertia ixx="0.001329" iyy="0.000857" izz="0.00095" ixy="-3.1e-05" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.009223 0.10552 -0.071701" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ROS2_description/meshes/Fright_Right_Shoulder_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.009223 0.10552 -0.071701" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ROS2_description/meshes/Fright_Right_Shoulder_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Back_Left_Foot_1">
+  <inertial>
+    <origin xyz="-4.769234756563101e-07 -1.288325916504185e-07 -1.9280291724266263e-07" rpy="0 0 0"/>
+    <mass value="0.2630560248605875"/>
+    <inertia ixx="4.2e-05" iyy="4.2e-05" izz="4.2e-05" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.21892 -0.28598 0.266358" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ROS2_description/meshes/Back_Left_Foot_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.21892 -0.28598 0.266358" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ROS2_description/meshes/Back_Left_Foot_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Back_Left_Lower_1">
+  <inertial>
+    <origin xyz="0.018335204386841497 -2.348403810226163e-05 -0.07786438840699332" rpy="0 0 0"/>
+    <mass value="0.985488360252137"/>
+    <inertia ixx="0.003602" iyy="0.00351" izz="0.000197" ixy="0.0" iyz="-2e-06" ixz="4.8e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.19992 -0.28598 0.086358" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ROS2_description/meshes/Back_Left_Lower_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.19992 -0.28598 0.086358" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ROS2_description/meshes/Back_Left_Lower_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Back_Left_Upper_1">
+  <inertial>
+    <origin xyz="0.055918503065534836 1.0455585150670466e-05 -0.033030893331113614" rpy="0 0 0"/>
+    <mass value="2.3322194981471407"/>
+    <inertia ixx="0.008147" iyy="0.008238" izz="0.002009" ixy="-2e-06" iyz="-1e-06" ixz="0.00128"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.11992 -0.28598 -0.071642" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ROS2_description/meshes/Back_Left_Upper_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.11992 -0.28598 -0.071642" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ROS2_description/meshes/Back_Left_Upper_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Back_Left_Shoulder_1">
+  <inertial>
+    <origin xyz="0.004638738026924466 0.03952177772311974 -1.9676770041429648e-05" rpy="0 0 0"/>
+    <mass value="1.344770313099662"/>
+    <inertia ixx="0.001329" iyy="0.000857" izz="0.00095" ixy="-3.1e-05" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.09692 -0.24048 -0.071642" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ROS2_description/meshes/Back_Left_Shoulder_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.09692 -0.24048 -0.071642" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ROS2_description/meshes/Back_Left_Shoulder_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Back_Right_Foot_1">
+  <inertial>
+    <origin xyz="-1.6000946473360145e-07 -1.2883259159490734e-07 -1.928029141895493e-07" rpy="0 0 0"/>
+    <mass value="0.2630560248605875"/>
+    <inertia ixx="4.2e-05" iyy="4.2e-05" izz="4.2e-05" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.131365 -0.28598 0.266358" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ROS2_description/meshes/Back_Right_Foot_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.131365 -0.28598 0.266358" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ROS2_description/meshes/Back_Right_Foot_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Back_Right_Lower_1">
+  <inertial>
+    <origin xyz="-0.01833588663752854 -2.3508883732703545e-05 -0.07786590930238567" rpy="0 0 0"/>
+    <mass value="0.985502752120821"/>
+    <inertia ixx="0.003602" iyy="0.00351" izz="0.000197" ixy="-0.0" iyz="-2e-06" ixz="-4.8e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.112365 -0.28598 0.086358" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ROS2_description/meshes/Back_Right_Lower_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.112365 -0.28598 0.086358" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ROS2_description/meshes/Back_Right_Lower_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Back_Right_Upper_1">
+  <inertial>
+    <origin xyz="-0.055919138061974384 1.045393466381217e-05 -0.03303088274092351" rpy="0 0 0"/>
+    <mass value="2.332219546028488"/>
+    <inertia ixx="0.008147" iyy="0.008238" izz="0.002009" ixy="2e-06" iyz="-1e-06" ixz="-0.00128"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.032365 -0.28598 -0.071642" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ROS2_description/meshes/Back_Right_Upper_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.032365 -0.28598 -0.071642" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ROS2_description/meshes/Back_Right_Upper_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Back_Right_Shoulder_1">
+  <inertial>
+    <origin xyz="-0.004639374857841083 0.03952177728219433 -1.967661612427285e-05" rpy="0 0 0"/>
+    <mass value="1.3447703291432433"/>
+    <inertia ixx="0.001329" iyy="0.000857" izz="0.00095" ixy="3.1e-05" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.009365 -0.24048 -0.071642" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ROS2_description/meshes/Back_Right_Shoulder_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.009365 -0.24048 -0.071642" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ROS2_description/meshes/Back_Right_Shoulder_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Front Left Foot" type="fixed">
+  <origin xyz="0.019 0.0 -0.18" rpy="0 0 0"/>
+  <parent link="Front_Left_Lower_1"/>
+  <child link="Front_Left_Foot_1"/>
+</joint>
+
+<joint name="Front Left Lower" type="continuous">
+  <origin xyz="0.08 0.0 -0.158" rpy="0 0 0"/>
+  <parent link="Front_Left_Upper_1"/>
+  <child link="Front_Left_Lower_1"/>
+  <axis xyz="-1.0 -0.0 0.0"/>
+</joint>
+
+<joint name="Front Left Upper" type="continuous">
+  <origin xyz="0.023 -0.0455 0.0" rpy="0 0 0"/>
+  <parent link="Front_Left_Shoulder_1"/>
+  <child link="Front_Left_Upper_1"/>
+  <axis xyz="1.0 0.0 -0.0"/>
+</joint>
+
+<joint name="Front Left Shoulder" type="continuous">
+  <origin xyz="0.096777 -0.10552 0.071701" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="Front_Left_Shoulder_1"/>
+  <axis xyz="-0.0 -1.0 -0.0"/>
+</joint>
+
+<joint name="Front Right Foot" type="fixed">
+  <origin xyz="-0.019 0.0 -0.18" rpy="0 0 0"/>
+  <parent link="Front_Right_Lower_1"/>
+  <child link="Front_Right_Foot_1"/>
+</joint>
+
+<joint name="Front Right Lower" type="continuous">
+  <origin xyz="-0.08 0.0 -0.158" rpy="0 0 0"/>
+  <parent link="Front_Right_Upper_1"/>
+  <child link="Front_Right_Lower_1"/>
+  <axis xyz="-1.0 0.0 -0.0"/>
+</joint>
+
+<joint name="Front Right Upper" type="continuous">
+  <origin xyz="-0.023 -0.0455 0.0" rpy="0 0 0"/>
+  <parent link="Fright_Right_Shoulder_1"/>
+  <child link="Front_Right_Upper_1"/>
+  <axis xyz="1.0 -0.0 0.0"/>
+</joint>
+
+<joint name="Front Right Shoulder" type="continuous">
+  <origin xyz="-0.009223 -0.10552 0.071701" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="Fright_Right_Shoulder_1"/>
+  <axis xyz="-0.0 1.0 0.0"/>
+</joint>
+
+<joint name="Back Left Foot" type="fixed">
+  <origin xyz="0.019 0.0 -0.18" rpy="0 0 0"/>
+  <parent link="Back_Left_Lower_1"/>
+  <child link="Back_Left_Foot_1"/>
+</joint>
+
+<joint name="Back Left Lower" type="continuous">
+  <origin xyz="0.08 0.0 -0.158" rpy="0 0 0"/>
+  <parent link="Back_Left_Upper_1"/>
+  <child link="Back_Left_Lower_1"/>
+  <axis xyz="-1.0 -0.0 0.0"/>
+</joint>
+
+<joint name="Back Left Upper" type="continuous">
+  <origin xyz="0.023 0.0455 0.0" rpy="0 0 0"/>
+  <parent link="Back_Left_Shoulder_1"/>
+  <child link="Back_Left_Upper_1"/>
+  <axis xyz="1.0 0.0 -0.0"/>
+</joint>
+
+<joint name="Back Left Shoulder" type="continuous">
+  <origin xyz="0.09692 0.24048 0.071642" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="Back_Left_Shoulder_1"/>
+  <axis xyz="-0.0 1.0 0.0"/>
+</joint>
+
+<joint name="Back Right Foot" type="fixed">
+  <origin xyz="-0.019 0.0 -0.18" rpy="0 0 0"/>
+  <parent link="Back_Right_Lower_1"/>
+  <child link="Back_Right_Foot_1"/>
+</joint>
+
+<joint name="Back Right Lower" type="continuous">
+  <origin xyz="-0.08 0.0 -0.158" rpy="0 0 0"/>
+  <parent link="Back_Right_Upper_1"/>
+  <child link="Back_Right_Lower_1"/>
+  <axis xyz="-1.0 0.0 -0.0"/>
+</joint>
+
+<joint name="Revolute 15" type="continuous">
+  <origin xyz="-0.023 0.0455 0.0" rpy="0 0 0"/>
+  <parent link="Back_Right_Shoulder_1"/>
+  <child link="Back_Right_Upper_1"/>
+  <axis xyz="1.0 -0.0 0.0"/>
+</joint>
+
+<joint name="Revolute 16" type="continuous">
+  <origin xyz="-0.009365 0.24048 0.071642" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="Back_Right_Shoulder_1"/>
+  <axis xyz="-0.0 -1.0 -0.0"/>
+</joint>
+
+</robot>
