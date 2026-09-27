@@ -41,7 +41,7 @@ class CycloidTrajectory:
 
     def debug_dump(self, steps=200):
         for _ in range(steps):
-            print(self.cycle())sss
+            print(self.cycle())
 
 if __name__=='__main__':
     t = CycloidTrajectory()
