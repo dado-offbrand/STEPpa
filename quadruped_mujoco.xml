@@ -24,7 +24,7 @@
   <worldbody>
     <body name="robot_chassis" pos="0 0 0.5">
     <!-- gravity joint -->
-    <!--<freejoint name="root"/>-->
+    <freejoint name="root"/>
     
     <geom pos="0 0 0" quat="1 0 0 0" type="mesh" rgba="0.7 0.7 0.7 1" mesh="base_link"/>
     <body name="Front_Left_Shoulder_1" pos="0.096777 -0.10552 0.071701">
@@ -91,53 +91,75 @@
         </body>
       </body>
     </body>
-
     </body> <!-- Closing chassis -->
+
+    <light diffuse=".5 .5 .5" pos="0 0 3" dir="0 0 -1"/>
+    <geom type="plane" size="15 15 0.5" rgba=".9 .9 .9 1"/>
   </worldbody>
 
   <contact>
+    <!-- Exclude shoulder from touching body -->
     <exclude body1="robot_chassis" body2="Front_Left_Shoulder_1"/>
     <exclude body1="robot_chassis" body2="Fright_Right_Shoulder_1"/>
     <exclude body1="robot_chassis" body2="Back_Left_Shoulder_1"/>
     <exclude body1="robot_chassis" body2="Back_Right_Shoulder_1"/>
+
+    <!-- Exclude lower legs from touching upper legs -->
+    <exclude body1="Front_Left_Lower_1" body2="Front_Left_Upper_1"/>
+    <exclude body1="Front_Right_Lower_1" body2="Front_Right_Upper_1"/>
+    <exclude body1="Back_Left_Lower_1" body2="Back_Left_Upper_1"/>
+    <exclude body1="Back_Right_Lower_1" body2="Back_Right_Upper_1"/>
+
+    <!-- Exclude foot from touching upper leg -->
+    <!--<exclude body1="Front_Left_Foot_1" body2="Front_Left_Upper_1"/>
+    <exclude body1="Front_Right_Foot_1" body2="Front_Right_Upper_1"/>
+    <exclude body1="Back_Left_Foot_1" body2="Back_Left_Upper_1"/>
+    <exclude body1="Back_Right_Foot_1" body2="Back_Right_Upper_1"/>-->
   </contact>
 
   <default>
     <!-- ctrllimited="true" ctrlrange="-3.14 3.14" gainprm="100" biasprm="0 -100 -1"/> -->
+    <!-- ctrlrange="-3.14 3.14" ctrllimited="true"/> -->
     <default class="shoulder">
-      <position gear="1" kp="250" kv="5"/>
+      <position gear="1" kp="80" kv="2.5" ctrlrange="-3.14 3.14" ctrllimited="true"/>/>
     </default>
 
-    <default class="upper">
-      <position gear="1" kp="175" kv="5"/>
+    <default class="upper_front">
+      <position gear="1" kp="160" kv="2.5" ctrlrange="-3.14 3.14" ctrllimited="true"/>/>
     </default>
 
-    <default class="lower">
-      <position gear="1" kp="175" kv="5"/>
+    <default class="lower_front">
+      <position gear="1" kp="80" kv="2.5" ctrlrange="-3.14 3.14" ctrllimited="true"/>/>
+    </default>
+
+    <default class="upper_back">
+      <position gear="1" kp="190" kv="2.5" ctrlrange="-3.14 3.14" ctrllimited="true"/>/>
+    </default>
+
+    <default class="lower_back">
+      <position gear="1" kp="110" kv="2.5" ctrlrange="-3.14 3.14" ctrllimited="true"/>/>
     </default>
   </default>
 
   <actuator>
-    <!-- ctrlrange="-3.14 3.14" ctrllimited="true"/> -->
-
     <!-- Front Left Leg -->
     <position class="shoulder" joint="Front Left Shoulder"/>
-    <position class="upper" joint="Front Left Upper"/>
-    <position class="lower" joint="Front Left Lower"/>
+    <position class="upper_front" joint="Front Left Upper"/>
+    <position class="lower_front" joint="Front Left Lower"/>
 
     <!-- Front Right Leg -->
     <position class="shoulder" joint="Front Right Shoulder"/>
-    <position class="upper" joint="Front Right Upper"/>
-    <position class="lower" joint="Front Right Lower"/>
+    <position class="upper_front" joint="Front Right Upper"/>
+    <position class="lower_front" joint="Front Right Lower"/>
 
     <!-- Back Left Leg -->
     <position class="shoulder" joint="Back Left Shoulder"/>
-    <position class="upper" joint="Back Left Upper"/>
-    <position class="lower" joint="Back Left Lower"/>
+    <position class="upper_back" joint="Back Left Upper"/>
+    <position class="lower_back" joint="Back Left Lower"/>
 
     <!-- Back Right Leg -->
     <position class="shoulder" joint="Back Right Shoulder"/>
-    <position class="upper" joint="Back Right Upper"/>
-    <position class="lower" joint="Back Right Lower"/>
+    <position class="upper_back" joint="Back Right Upper"/>
+    <position class="lower_back" joint="Back Right Lower"/>
   </actuator>
 </mujoco>

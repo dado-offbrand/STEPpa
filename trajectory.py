@@ -12,7 +12,7 @@ class CycloidTrajectory:
 
         self.duty_cycle = 0.6  # stance ratio
 
-    def set_offsets(phase_offset, forward_offset, height_offset):
+    def set_offsets(self, phase_offset, forward_offset, height_offset):
         self.phase = 0.0 + phase_offset
         self.END_X = 0.0 + forward_offset
         self.Z_BASE = -0.22 + height_offset
@@ -44,5 +44,5 @@ class CycloidTrajectory:
             print(self.cycle())
 
 if __name__=='__main__':
-    t = CycloidTrajectory()
+    t = CycloidTrajectory(0, 0, .3)
     t.debug_dump()

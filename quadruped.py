@@ -13,9 +13,7 @@ class Quadruped:
         self.back_right = Leg("Back Right")
 
         self.legs = [self.back_left, self.front_left, self.front_right, self.back_right]
-        self.gait_planner = gait.gait()
-
-        self.movement_vector = 1
+        self.gait_planner = gait.gait(self)
 
     # Updates all leg poses based off of an array of targets
     def update_all_poses(self, targets):

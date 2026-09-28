@@ -1,13 +1,13 @@
 import trajectory
 
 class gait:
-    def __init__(self):
+    def __init__(self, quad):
         self.back_left_tp = trajectory.CycloidTrajectory(0, 0, 0)
         self.front_right_tp = trajectory.CycloidTrajectory(0, 0, -0.02)
         self.back_right_tp = trajectory.CycloidTrajectory(0.5, 0, 0)
         self.front_left_tp = trajectory.CycloidTrajectory(0.5, 0, -0.02)
+        self.quadruped = quad
         self.tps = [self.back_left_tp, self.front_left_tp, self.front_right_tp, self.back_right_tp]
-
         self.forward_vector = 1
         #self.rotational_vector = 1 # how much further the left/right extends
 
@@ -15,8 +15,8 @@ class gait:
         targets = []
         for tp in self.tps:
             x, y, z = tp.cycle()
-            targets.append((x * self.movement_vector, y, z))
-        self.update_all_poses(targets)
+            targets.append((x * self.forward_vector, y, z))
+        self.quadruped.update_all_poses(targets)
 
 # moving can be done by setting individual movement vectors on feet to rotate, along with
 # forward offset so that one foot moves more than the other for turning while walking?
