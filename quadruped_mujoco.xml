@@ -1,0 +1,143 @@
+<mujoco model="ROS2">
+  <compiler angle="radian"/>
+
+  <asset>
+    <mesh name="base_link" content_type="model/stl" file="meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="Front_Left_Foot_1" content_type="model/stl" file="meshes/Front_Left_Foot_1.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="Front_Left_Lower_1" content_type="model/stl" file="meshes/Front_Left_Lower_1.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="Front_Left_Upper_1" content_type="model/stl" file="meshes/Front_Left_Upper_1.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="Front_Left_Shoulder_1" content_type="model/stl" file="meshes/Front_Left_Shoulder_1.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="Front_Right_Foot_1" content_type="model/stl" file="meshes/Front_Right_Foot_1.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="Front_Right_Lower_1" content_type="model/stl" file="meshes/Front_Right_Lower_1.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="Front_Right_Upper_1" content_type="model/stl" file="meshes/Front_Right_Upper_1.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="Fright_Right_Shoulder_1" content_type="model/stl" file="meshes/Fright_Right_Shoulder_1.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="Back_Left_Foot_1" content_type="model/stl" file="meshes/Back_Left_Foot_1.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="Back_Left_Lower_1" content_type="model/stl" file="meshes/Back_Left_Lower_1.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="Back_Left_Upper_1" content_type="model/stl" file="meshes/Back_Left_Upper_1.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="Back_Left_Shoulder_1" content_type="model/stl" file="meshes/Back_Left_Shoulder_1.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="Back_Right_Foot_1" content_type="model/stl" file="meshes/Back_Right_Foot_1.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="Back_Right_Lower_1" content_type="model/stl" file="meshes/Back_Right_Lower_1.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="Back_Right_Upper_1" content_type="model/stl" file="meshes/Back_Right_Upper_1.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="Back_Right_Shoulder_1" content_type="model/stl" file="meshes/Back_Right_Shoulder_1.stl" scale="0.001 0.001 0.001"/>
+  </asset>
+
+  <worldbody>
+    <body name="robot_chassis" pos="0 0 0.5">
+    <!-- gravity joint -->
+    <!--<freejoint name="root"/>-->
+    
+    <geom pos="0 0 0" quat="1 0 0 0" type="mesh" rgba="0.7 0.7 0.7 1" mesh="base_link"/>
+    <body name="Front_Left_Shoulder_1" pos="0.096777 -0.10552 0.071701">
+      <inertial pos="0.0046394 -0.039522 1.92515e-05" quat="0.70673 0.70673 0.0230844 0.0230844" mass="1.34477" diaginertia="0.00133103 0.00095 0.000854973"/>
+      <joint name="Front Left Shoulder" axis="0 -1 0"/>
+      <geom pos="-0.096777 0.10552 -0.071701" quat="1 0 0 0" type="mesh" rgba="0.7 0.7 0.7 1" mesh="Front_Left_Shoulder_1"/>
+      <body name="Front_Left_Upper_1" pos="0.023 -0.0455 0">
+        <inertial pos="0.0559192 1.04556e-05 -0.0330309" quat="0.995104 0.000598594 -0.0986221 -0.0064995" mass="2.33222" diaginertia="0.00840326 0.00823797 0.00175277"/>
+        <joint name="Front Left Upper" axis="1 0 0"/>
+        <geom pos="-0.119777 0.15102 -0.071701" type="mesh" rgba="0.7 0.7 0.7 1" mesh="Front_Left_Upper_1"/>
+        <body name="Front_Left_Lower_1" pos="0.08 0 -0.158">
+          <inertial pos="0.0184758 -1.85633e-05 -0.0993834" quat="0.999984 -0.000136685 -0.00557162 -0.000108692" mass="1.24854" diaginertia="0.00581066 0.00571806 0.000238399"/>
+          <joint name="Front Left Lower" axis="-1 0 0"/>
+          <geom pos="-0.199777 0.15102 0.086299" type="mesh" rgba="0.7 0.7 0.7 1" mesh="Front_Left_Lower_1"/>
+          <geom pos="-0.199777 0.15102 0.086299" quat="1 0 0 0" type="mesh" rgba="0.7 0.7 0.7 1" mesh="Front_Left_Foot_1"/>
+        </body>
+      </body>
+    </body>
+    <body name="Fright_Right_Shoulder_1" pos="-0.009223 -0.10552 0.071701">
+      <inertial pos="-0.00463903 -0.039522 1.92514e-05" quat="0.70673 0.70673 -0.0230844 -0.0230844" mass="1.34477" diaginertia="0.00133103 0.00095 0.000854973"/>
+      <joint name="Front Right Shoulder" axis="0 1 0"/>
+      <geom pos="0.009223 0.10552 -0.071701" quat="1 0 0 0" type="mesh" rgba="0.7 0.7 0.7 1" mesh="Fright_Right_Shoulder_1"/>
+      <body name="Front_Right_Upper_1" pos="-0.023 -0.0455 0">
+        <inertial pos="-0.0559188 1.04539e-05 -0.0330309" quat="0.995104 0.000598594 0.0986221 0.0064995" mass="2.33222" diaginertia="0.00840326 0.00823797 0.00175277"/>
+        <joint name="Front Right Upper" axis="1 0 0"/>
+        <geom pos="0.032223 0.15102 -0.071701" type="mesh" rgba="0.7 0.7 0.7 1" mesh="Front_Right_Upper_1"/>
+        <body name="Front_Right_Lower_1" pos="-0.08 0 -0.158">
+          <inertial pos="-0.0184755 -1.8583e-05 -0.0993844" quat="0.999984 -0.000136639 0.00557158 0.000108677" mass="1.24856" diaginertia="0.0058106 0.005718 0.000238399"/>
+          <joint name="Front Right Lower" axis="-1 0 0"/>
+          <geom pos="0.112223 0.15102 0.086299" type="mesh" rgba="0.7 0.7 0.7 1" mesh="Front_Right_Lower_1"/>
+          <geom pos="0.112223 0.15102 0.086299" quat="1 0 0 0" type="mesh" rgba="0.7 0.7 0.7 1" mesh="Front_Right_Foot_1"/>
+        </body>
+      </body>
+    </body>
+    <body name="Back_Left_Shoulder_1" pos="0.09692 0.24048 0.071642">
+      <inertial pos="0.00463874 0.0395218 -1.96768e-05" quat="0.70673 0.70673 -0.0230844 -0.0230844" mass="1.34477" diaginertia="0.00133103 0.00095 0.000854973"/>
+      <joint name="Back Left Shoulder" axis="0 1 0"/>
+      <geom pos="-0.09692 -0.24048 -0.071642" quat="1 0 0 0" type="mesh" rgba="0.7 0.7 0.7 1" mesh="Back_Left_Shoulder_1"/>
+      <body name="Back_Left_Upper_1" pos="0.023 0.0455 0">
+        <inertial pos="0.0559185 1.04556e-05 -0.0330309" quat="0.995104 0.000598594 -0.0986221 -0.0064995" mass="2.33222" diaginertia="0.00840326 0.00823797 0.00175277"/>
+        <joint name="Back Left Upper" axis="1 0 0"/>
+        <geom pos="-0.11992 -0.28598 -0.071642" type="mesh" rgba="0.7 0.7 0.7 1" mesh="Back_Left_Upper_1"/>
+        <body name="Back_Left_Lower_1" pos="0.08 0 -0.158">
+          <inertial pos="0.0184752 -1.85633e-05 -0.0993834" quat="0.999984 -0.000136685 -0.00557162 -0.000108692" mass="1.24854" diaginertia="0.00581066 0.00571806 0.000238399"/>
+          <joint name="Back Left Lower" axis="-1 0 0"/>
+          <geom pos="-0.19992 -0.28598 0.086358" type="mesh" rgba="0.7 0.7 0.7 1" mesh="Back_Left_Lower_1"/>
+          <geom pos="-0.19992 -0.28598 0.086358" quat="1 0 0 0" type="mesh" rgba="0.7 0.7 0.7 1" mesh="Back_Left_Foot_1"/>
+        </body>
+      </body>
+    </body>
+    <body name="Back_Right_Shoulder_1" pos="-0.009365 0.24048 0.071642">
+      <inertial pos="-0.00463937 0.0395218 -1.96766e-05" quat="0.70673 0.70673 0.0230844 0.0230844" mass="1.34477" diaginertia="0.00133103 0.00095 0.000854973"/>
+      <joint name="Back Right Shoulder" axis="0 -1 0"/>
+      <geom pos="0.009365 -0.24048 -0.071642" quat="1 0 0 0" type="mesh" rgba="0.7 0.7 0.7 1" mesh="Back_Right_Shoulder_1"/>
+      <body name="Back_Right_Upper_1" pos="-0.023 0.0455 0">
+        <inertial pos="-0.0559191 1.04539e-05 -0.0330309" quat="0.995104 0.000598594 0.0986221 0.0064995" mass="2.33222" diaginertia="0.00840326 0.00823797 0.00175277"/>
+        <joint name="Back Right Upper" axis="1 0 0"/>
+        <geom pos="0.032365 -0.28598 -0.071642" type="mesh" rgba="0.7 0.7 0.7 1" mesh="Back_Right_Upper_1"/>
+        <body name="Back_Right_Lower_1" pos="-0.08 0 -0.158">
+          <inertial pos="-0.0184758 -1.8583e-05 -0.0993844" quat="0.999984 -0.000136639 0.00557158 0.000108677" mass="1.24856" diaginertia="0.0058106 0.005718 0.000238399"/>
+          <joint name="Back Right Lower" axis="-1 0 0"/>
+          <geom pos="0.112365 -0.28598 0.086358" quat="1 0 0 0" type="mesh" rgba="0.7 0.7 0.7 1" mesh="Back_Right_Lower_1"/>
+          <geom pos="0.112365 -0.28598 0.086358" quat="1 0 0 0" type="mesh" rgba="0.7 0.7 0.7 1" mesh="Back_Right_Foot_1"/>
+        </body>
+      </body>
+    </body>
+
+    </body> <!-- Closing chassis -->
+  </worldbody>
+
+  <contact>
+    <exclude body1="robot_chassis" body2="Front_Left_Shoulder_1"/>
+    <exclude body1="robot_chassis" body2="Fright_Right_Shoulder_1"/>
+    <exclude body1="robot_chassis" body2="Back_Left_Shoulder_1"/>
+    <exclude body1="robot_chassis" body2="Back_Right_Shoulder_1"/>
+  </contact>
+
+  <default>
+    <!-- ctrllimited="true" ctrlrange="-3.14 3.14" gainprm="100" biasprm="0 -100 -1"/> -->
+    <default class="shoulder">
+      <position gear="1" kp="250" kv="5"/>
+    </default>
+
+    <default class="upper">
+      <position gear="1" kp="175" kv="5"/>
+    </default>
+
+    <default class="lower">
+      <position gear="1" kp="175" kv="5"/>
+    </default>
+  </default>
+
+  <actuator>
+    <!-- ctrlrange="-3.14 3.14" ctrllimited="true"/> -->
+
+    <!-- Front Left Leg -->
+    <position class="shoulder" joint="Front Left Shoulder"/>
+    <position class="upper" joint="Front Left Upper"/>
+    <position class="lower" joint="Front Left Lower"/>
+
+    <!-- Front Right Leg -->
+    <position class="shoulder" joint="Front Right Shoulder"/>
+    <position class="upper" joint="Front Right Upper"/>
+    <position class="lower" joint="Front Right Lower"/>
+
+    <!-- Back Left Leg -->
+    <position class="shoulder" joint="Back Left Shoulder"/>
+    <position class="upper" joint="Back Left Upper"/>
+    <position class="lower" joint="Back Left Lower"/>
+
+    <!-- Back Right Leg -->
+    <position class="shoulder" joint="Back Right Shoulder"/>
+    <position class="upper" joint="Back Right Upper"/>
+    <position class="lower" joint="Back Right Lower"/>
+  </actuator>
+</mujoco>

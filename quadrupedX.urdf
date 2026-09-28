@@ -242,14 +242,14 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://ROS2_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="meshes/base_link.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="silver"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://ROS2_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="meshes/base_link.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
@@ -262,14 +262,14 @@
     <visual>
       <origin xyz="-0.218777 0.15102 0.266299" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://ROS2_description/meshes/Front_Left_Foot_1.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="meshes/Front_Left_Foot_1.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="silver"/>
     </visual>
     <collision>
       <origin xyz="-0.218777 0.15102 0.266299" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://ROS2_description/meshes/Front_Left_Foot_1.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="meshes/Front_Left_Foot_1.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
@@ -282,14 +282,14 @@
     <visual>
       <origin xyz="-0.199777 0.15102 0.086299" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://ROS2_description/meshes/Front_Left_Lower_1.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="meshes/Front_Left_Lower_1.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="silver"/>
     </visual>
     <collision>
       <origin xyz="-0.199777 0.15102 0.086299" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://ROS2_description/meshes/Front_Left_Lower_1.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="meshes/Front_Left_Lower_1.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
@@ -302,14 +302,14 @@
     <visual>
       <origin xyz="-0.119777 0.15102 -0.071701" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://ROS2_description/meshes/Front_Left_Upper_1.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="meshes/Front_Left_Upper_1.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="silver"/>
     </visual>
     <collision>
       <origin xyz="-0.119777 0.15102 -0.071701" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://ROS2_description/meshes/Front_Left_Upper_1.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="meshes/Front_Left_Upper_1.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
@@ -322,14 +322,14 @@
     <visual>
       <origin xyz="-0.096777 0.10552 -0.071701" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://ROS2_description/meshes/Front_Left_Shoulder_1.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="meshes/Front_Left_Shoulder_1.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="silver"/>
     </visual>
     <collision>
       <origin xyz="-0.096777 0.10552 -0.071701" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://ROS2_description/meshes/Front_Left_Shoulder_1.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="meshes/Front_Left_Shoulder_1.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
@@ -342,14 +342,14 @@
     <visual>
       <origin xyz="0.131223 0.15102 0.266299" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://ROS2_description/meshes/Front_Right_Foot_1.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="meshes/Front_Right_Foot_1.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="silver"/>
     </visual>
     <collision>
       <origin xyz="0.131223 0.15102 0.266299" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://ROS2_description/meshes/Front_Right_Foot_1.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="meshes/Front_Right_Foot_1.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
@@ -362,14 +362,14 @@
     <visual>
       <origin xyz="0.112223 0.15102 0.086299" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://ROS2_description/meshes/Front_Right_Lower_1.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="meshes/Front_Right_Lower_1.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="silver"/>
     </visual>
     <collision>
       <origin xyz="0.112223 0.15102 0.086299" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://ROS2_description/meshes/Front_Right_Lower_1.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="meshes/Front_Right_Lower_1.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
@@ -382,14 +382,14 @@
     <visual>
       <origin xyz="0.032223 0.15102 -0.071701" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://ROS2_description/meshes/Front_Right_Upper_1.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="meshes/Front_Right_Upper_1.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="silver"/>
     </visual>
     <collision>
       <origin xyz="0.032223 0.15102 -0.071701" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://ROS2_description/meshes/Front_Right_Upper_1.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="meshes/Front_Right_Upper_1.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
@@ -402,14 +402,14 @@
     <visual>
       <origin xyz="0.009223 0.10552 -0.071701" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://ROS2_description/meshes/Fright_Right_Shoulder_1.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="meshes/Fright_Right_Shoulder_1.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="silver"/>
     </visual>
     <collision>
       <origin xyz="0.009223 0.10552 -0.071701" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://ROS2_description/meshes/Fright_Right_Shoulder_1.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="meshes/Fright_Right_Shoulder_1.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
@@ -422,14 +422,14 @@
     <visual>
       <origin xyz="-0.21892 -0.28598 0.266358" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://ROS2_description/meshes/Back_Left_Foot_1.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="meshes/Back_Left_Foot_1.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="silver"/>
     </visual>
     <collision>
       <origin xyz="-0.21892 -0.28598 0.266358" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://ROS2_description/meshes/Back_Left_Foot_1.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="meshes/Back_Left_Foot_1.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
@@ -442,14 +442,14 @@
     <visual>
       <origin xyz="-0.19992 -0.28598 0.086358" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://ROS2_description/meshes/Back_Left_Lower_1.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="meshes/Back_Left_Lower_1.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="silver"/>
     </visual>
     <collision>
       <origin xyz="-0.19992 -0.28598 0.086358" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://ROS2_description/meshes/Back_Left_Lower_1.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="meshes/Back_Left_Lower_1.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
@@ -462,14 +462,14 @@
     <visual>
       <origin xyz="-0.11992 -0.28598 -0.071642" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://ROS2_description/meshes/Back_Left_Upper_1.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="meshes/Back_Left_Upper_1.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="silver"/>
     </visual>
     <collision>
       <origin xyz="-0.11992 -0.28598 -0.071642" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://ROS2_description/meshes/Back_Left_Upper_1.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="meshes/Back_Left_Upper_1.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
@@ -482,14 +482,14 @@
     <visual>
       <origin xyz="-0.09692 -0.24048 -0.071642" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://ROS2_description/meshes/Back_Left_Shoulder_1.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="meshes/Back_Left_Shoulder_1.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="silver"/>
     </visual>
     <collision>
       <origin xyz="-0.09692 -0.24048 -0.071642" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://ROS2_description/meshes/Back_Left_Shoulder_1.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="meshes/Back_Left_Shoulder_1.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
@@ -502,14 +502,14 @@
     <visual>
       <origin xyz="0.131365 -0.28598 0.266358" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://ROS2_description/meshes/Back_Right_Foot_1.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="meshes/Back_Right_Foot_1.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="silver"/>
     </visual>
     <collision>
       <origin xyz="0.131365 -0.28598 0.266358" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://ROS2_description/meshes/Back_Right_Foot_1.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="meshes/Back_Right_Foot_1.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
@@ -522,14 +522,14 @@
     <visual>
       <origin xyz="0.112365 -0.28598 0.086358" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://ROS2_description/meshes/Back_Right_Lower_1.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="meshes/Back_Right_Lower_1.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="silver"/>
     </visual>
     <collision>
       <origin xyz="0.112365 -0.28598 0.086358" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://ROS2_description/meshes/Back_Right_Lower_1.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="meshes/Back_Right_Lower_1.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
@@ -542,14 +542,14 @@
     <visual>
       <origin xyz="0.032365 -0.28598 -0.071642" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://ROS2_description/meshes/Back_Right_Upper_1.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="meshes/Back_Right_Upper_1.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="silver"/>
     </visual>
     <collision>
       <origin xyz="0.032365 -0.28598 -0.071642" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://ROS2_description/meshes/Back_Right_Upper_1.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="meshes/Back_Right_Upper_1.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
@@ -562,14 +562,14 @@
     <visual>
       <origin xyz="0.009365 -0.24048 -0.071642" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://ROS2_description/meshes/Back_Right_Shoulder_1.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="meshes/Back_Right_Shoulder_1.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="silver"/>
     </visual>
     <collision>
       <origin xyz="0.009365 -0.24048 -0.071642" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://ROS2_description/meshes/Back_Right_Shoulder_1.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="meshes/Back_Right_Shoulder_1.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
