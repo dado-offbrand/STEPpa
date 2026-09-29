@@ -10,7 +10,12 @@ class gait:
         self.front_right_tp = trajectory.CycloidTrajectory3D(0, 0, -0.03)
         self.back_right_tp = trajectory.CycloidTrajectory3D(0.6, 0, -0.01)
         self.front_left_tp = trajectory.CycloidTrajectory3D(0.6, 0, -0.03)
-        self.tps = [self.back_left_tp, self.front_left_tp, self.front_right_tp, self.back_right_tp]
+        self.tps = [
+            self.front_left_tp, 
+            self.front_right_tp, 
+            self.back_left_tp, 
+            self.back_right_tp
+        ]
 
         self.FORWARD = 1
         self.BACKWARD = -1

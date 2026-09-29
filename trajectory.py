@@ -60,7 +60,7 @@ class CycloidTrajectory3D:
 
         self.duty_cycle = 0.6 # decrease to spend more time on ground?
 
-    def set_offsets(phase_offset, forward_offset, height_offset):
+    def set_offsets(self, phase_offset, forward_offset, height_offset):
         self.phase = 0.0 + phase_offset
         self.END_X = 0.0 + forward_offset
         self.Z_BASE = -0.22 + height_offset
@@ -75,7 +75,7 @@ class CycloidTrajectory3D:
             x = x1 + (x2 - x1) * u
             y = y1 + (y2 - y1) * u
             z = z1 + (z2 - z1) * u
-            #print('straight')
+            print('straight')
         else:
             # swing phase (cycloidal step)
             u = (t - self.duty_cycle) / (1 - self.duty_cycle)
@@ -90,7 +90,7 @@ class CycloidTrajectory3D:
                 + u * z2
                 + A * (1 - np.cos(2 * np.pi * u)) / 2
             )
-            #print('swing')
+            print('swing')
 
         self.phase += self.dt
         return (x, y, z)

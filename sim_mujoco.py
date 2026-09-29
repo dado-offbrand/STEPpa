@@ -8,6 +8,10 @@ import numpy as np
 model = mujoco.MjModel.from_xml_path('quadruped_mujoco.xml')
 data = mujoco.MjData(model)
 
+# Time guff
+CONTROL_INTERVAL_MS = 10.0 # run every x miliseconds
+control_dt = CONTROL_INTERVAL_MS / 1000.0  # convert to seconds
+
 # Custom class guff
 quad = quadruped.Quadruped()
 #gui = sim_ui.TargetUI(quad.get_target_tuples())
@@ -24,41 +28,42 @@ quad = quadruped.Quadruped()
 # Launch viewer
 with mujoco.viewer.launch_passive(model, data) as viewer:
     print("Simulation running. Close the viewer window to exit.")
-    
-    # 3. Simulation loop
+    last_control_time = 0.0
+
     while viewer.is_running():
-        mujoco.mj_step(model, data) 
+        if (data.time - last_control_time) >= control_dt:
+            #
+            # Get quadruped position array
+            #
+            quad.gait_planner.cycle()
+            positions = quad.get_pose_array()
+
+            #
+            # Set simulation data
+            #
+            # Shoulders
+            data.ctrl[0] = positions[0]
+            data.ctrl[3] = positions[1]
+            data.ctrl[6] = positions[2]
+            data.ctrl[9] = positions[3]
+
+            # Upper legs
+            data.ctrl[1] = positions[4]
+            data.ctrl[4] = positions[5]
+            data.ctrl[7] = positions[6]
+            data.ctrl[10] = positions[7]
+
+            # Lower legs
+            data.ctrl[2] = positions[8]
+            data.ctrl[5] = positions[9]
+            data.ctrl[8] = positions[10]
+            data.ctrl[11] = positions[11]
+
+            last_control_time = data.time
 
         #
-        # Get quadruped position array
+        # Step simulation and sleep remaining time to pace
         #
-        quad.gait_planner.cycle()
-        positions = quad.get_pose_array()
+        mujoco.mj_step(model, data)
 
-        #
-        # Set simulation data
-        #
-        for i in range(len(data.ctrl)):
-            data.ctrl[i] = positions[i]
-            print(np.rad2deg(positions[i]))
-        print("\n\n\n")
-        # Shoulders
-        # data.ctrl[0] = np.deg2rad(0)
-        # data.ctrl[3] = np.deg2rad(0)
-        # data.ctrl[6] = np.deg2rad(0)
-        # data.ctrl[9] = np.deg2rad(0)
-
-        # # Upper legs
-        # data.ctrl[1] = np.deg2rad(45)
-        # data.ctrl[4] = np.deg2rad(45)
-        # data.ctrl[7] = np.deg2rad(45)
-        # data.ctrl[10] = np.deg2rad(45)
-
-        # # Lower legs
-        # data.ctrl[2] = np.deg2rad(90)
-        # data.ctrl[5] = np.deg2rad(90)
-        # data.ctrl[8] = np.deg2rad(90)
-        # data.ctrl[11] = np.deg2rad(90)
-
-        # end non-sim code area
         viewer.sync()

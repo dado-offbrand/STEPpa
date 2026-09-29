@@ -3,7 +3,7 @@ import gait
 import ik
 
 class Quadruped:
-    _GROUPS = ["Front Right", "Back Right", "Back Left", "Front Left"]
+    _GROUPS = ["Front Left", "Front Right", "Back Left", "Back Right"]
 
     # Initializes a quadruped at neutral position
     def __init__(self):
@@ -12,7 +12,7 @@ class Quadruped:
         self.front_right = Leg("Front Right")
         self.back_right = Leg("Back Right")
 
-        self.legs = [self.back_left, self.front_left, self.front_right, self.back_right]
+        self.legs = [self.front_left, self.front_right, self.back_left, self.back_right]
         self.gait_planner = gait.gait(self)
 
         self.movement_vector = 1
