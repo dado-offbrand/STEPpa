@@ -15,6 +15,12 @@ class Quadruped:
         self.legs = [self.back_left, self.front_left, self.front_right, self.back_right]
         self.gait_planner = gait.gait(self)
 
+        self.movement_vector = 1
+
+        self.SIM_LOCO_GUI = 2
+        self.SIM_LOCO_IK = 1
+        self.sim_loco_type = self.SIM_LOCO_IK
+
     # Updates all leg poses based off of an array of targets
     def update_all_poses(self, targets):
         for i, (tx, ty, tz) in enumerate(targets):
