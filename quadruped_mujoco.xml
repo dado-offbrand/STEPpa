@@ -24,7 +24,7 @@
   <worldbody>
     <body name="robot_chassis" pos="0 0 0.5">
     <!-- gravity joint -->
-    <!--<freejoint name="root"/>-->
+    <freejoint name="root"/>
     
     <geom pos="0 0 0" quat="1 0 0 0" type="mesh" rgba="0.7 0.7 0.7 1" mesh="base_link"/>
     <body name="Front_Left_Shoulder_1" pos="0.096777 -0.10552 0.071701">
