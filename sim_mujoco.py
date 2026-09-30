@@ -30,7 +30,6 @@ with mujoco.viewer.launch_passive(model, data) as viewer:
     print("Running sim")
     last_control_time = data.time
     last_render_time = time.time()
-    quad.gait_planner.forward_vector = 1 # temp
 
     while viewer.is_running():
         step_start = time.time()
