@@ -27,20 +27,21 @@ quad = quadruped.Quadruped()
 
 # Launch viewer
 with mujoco.viewer.launch_passive(model, data) as viewer:
-    print("Simulation running. Close the viewer window to exit.")
-    last_control_time = 0.0
+    print("Running sim")
+    last_control_time = data.time
+    last_render_time = time.time()
 
     while viewer.is_running():
+        step_start = time.time()
+
+        #
+        # Set simulation data every 10 ms
+        #
         if (data.time - last_control_time) >= control_dt:
-            #
-            # Get quadruped position array
-            #
-            quad.gait_planner.cycle()
+            targets = quad.gait_planner.cycle()
+            quad.update_all_poses(targets)
             positions = quad.get_pose_array()
 
-            #
-            # Set simulation data
-            #
             # Shoulders
             data.ctrl[0] = positions[0]
             data.ctrl[3] = positions[1]
@@ -61,9 +62,15 @@ with mujoco.viewer.launch_passive(model, data) as viewer:
 
             last_control_time = data.time
 
-        #
-        # Step simulation and sleep remaining time to pace
-        #
         mujoco.mj_step(model, data)
 
-        viewer.sync()
+        # So that render isn't called every physics step (60fps)
+        current_time = time.time()
+        if (current_time - last_render_time) > (1.0 / 60.0):
+            viewer.sync()
+            last_render_time = current_time
+
+        # So that physics steps aren't a bajillion times a second
+        time_until_next_step = model.opt.timestep - (time.time() - step_start)
+        if time_until_next_step > 0:
+            time.sleep(time_until_next_step)
