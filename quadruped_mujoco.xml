@@ -39,7 +39,7 @@
           <inertial pos="0.0184758 -1.85633e-05 -0.0993834" quat="0.999984 -0.000136685 -0.00557162 -0.000108692" mass="1.24854" diaginertia="0.00581066 0.00571806 0.000238399"/>
           <joint name="Front Left Lower" axis="-1 0 0"/>
           <geom pos="-0.199777 0.15102 0.086299" type="mesh" rgba="0.7 0.7 0.7 1" mesh="Front_Left_Lower_1"/>
-          <geom pos="-0.199777 0.15102 0.086299" quat="1 0 0 0" type="mesh" rgba="0.7 0.7 0.7 1" mesh="Front_Left_Foot_1"/>
+          <geom pos="-0.199777 0.15102 0.086299" quat="1 0 0 0" type="mesh" rgba="0.7 0.7 0.7 1" friction="2.0 0.005 0.0001" mesh="Front_Left_Foot_1"/>
         </body>
       </body>
     </body>
@@ -55,7 +55,7 @@
           <inertial pos="-0.0184755 -1.8583e-05 -0.0993844" quat="0.999984 -0.000136639 0.00557158 0.000108677" mass="1.24856" diaginertia="0.0058106 0.005718 0.000238399"/>
           <joint name="Front Right Lower" axis="-1 0 0"/>
           <geom pos="0.112223 0.15102 0.086299" type="mesh" rgba="0.7 0.7 0.7 1" mesh="Front_Right_Lower_1"/>
-          <geom pos="0.112223 0.15102 0.086299" quat="1 0 0 0" type="mesh" rgba="0.7 0.7 0.7 1" mesh="Front_Right_Foot_1"/>
+          <geom pos="0.112223 0.15102 0.086299" quat="1 0 0 0" type="mesh" rgba="0.7 0.7 0.7 1" friction="2.0 0.005 0.0001" mesh="Front_Right_Foot_1"/>
         </body>
       </body>
     </body>
@@ -71,7 +71,7 @@
           <inertial pos="0.0184752 -1.85633e-05 -0.0993834" quat="0.999984 -0.000136685 -0.00557162 -0.000108692" mass="1.24854" diaginertia="0.00581066 0.00571806 0.000238399"/>
           <joint name="Back Left Lower" axis="-1 0 0"/>
           <geom pos="-0.19992 -0.28598 0.086358" type="mesh" rgba="0.7 0.7 0.7 1" mesh="Back_Left_Lower_1"/>
-          <geom pos="-0.19992 -0.28598 0.086358" quat="1 0 0 0" type="mesh" rgba="0.7 0.7 0.7 1" mesh="Back_Left_Foot_1"/>
+          <geom pos="-0.19992 -0.28598 0.086358" quat="1 0 0 0" type="mesh" rgba="0.7 0.7 0.7 1" friction="2.0 0.005 0.0001" mesh="Back_Left_Foot_1"/>
         </body>
       </body>
     </body>
@@ -87,14 +87,14 @@
           <inertial pos="-0.0184758 -1.8583e-05 -0.0993844" quat="0.999984 -0.000136639 0.00557158 0.000108677" mass="1.24856" diaginertia="0.0058106 0.005718 0.000238399"/>
           <joint name="Back Right Lower" axis="-1 0 0"/>
           <geom pos="0.112365 -0.28598 0.086358" quat="1 0 0 0" type="mesh" rgba="0.7 0.7 0.7 1" mesh="Back_Right_Lower_1"/>
-          <geom pos="0.112365 -0.28598 0.086358" quat="1 0 0 0" type="mesh" rgba="0.7 0.7 0.7 1" mesh="Back_Right_Foot_1"/>
+          <geom pos="0.112365 -0.28598 0.086358" quat="1 0 0 0" type="mesh" rgba="0.7 0.7 0.7 1" friction="2.0 0.005 0.0001" mesh="Back_Right_Foot_1"/>
         </body>
       </body>
     </body>
     </body> <!-- Closing chassis -->
 
     <light diffuse=".5 .5 .5" pos="0 0 3" dir="0 0 -1"/>
-    <geom type="plane" size="15 15 0.5" rgba=".9 .9 .9 1"/>
+    <geom type="plane" friction="2.0 0.005 0.0001" size="15 15 0.5" rgba=".9 .9 .9 1"/>
   </worldbody>
 
   <contact>
@@ -121,23 +121,23 @@
     <!-- ctrllimited="true" ctrlrange="-3.14 3.14" gainprm="100" biasprm="0 -100 -1"/> -->
     <!-- ctrlrange="-3.14 3.14" ctrllimited="true"/> -->
     <default class="shoulder">
-      <position gear="1" kp="80" kv="2.5" ctrlrange="-3.14 3.14" ctrllimited="true"/>/>
+      <position gear="1" kp="300" kv="2.5" ctrlrange="-3.14 3.14" ctrllimited="true"/>/>
     </default>
 
     <default class="upper_front">
-      <position gear="1" kp="160" kv="2.5" ctrlrange="-3.14 3.14" ctrllimited="true"/>/>
+      <position gear="1" kp="300" kv="2.5" ctrlrange="-3.14 3.14" ctrllimited="true"/>/>
     </default>
 
     <default class="lower_front">
-      <position gear="1" kp="230" kv="2.5" ctrlrange="-3.14 3.14" ctrllimited="true"/>/>
+      <position gear="1" kp="300" kv="2.5" ctrlrange="-3.14 3.14" ctrllimited="true"/>/>
     </default>
 
     <default class="upper_back">
-      <position gear="1" kp="230" kv="2.5" ctrlrange="-3.14 3.14" ctrllimited="true"/>/>
+      <position gear="1" kp="300" kv="2.5" ctrlrange="-3.14 3.14" ctrllimited="true"/>/>
     </default>
 
     <default class="lower_back">
-      <position gear="1" kp="230" kv="2.5" ctrlrange="-3.14 3.14" ctrllimited="true"/>/>
+      <position gear="1" kp="300" kv="2.5" ctrlrange="-3.14 3.14" ctrllimited="true"/>/>
     </default>
   </default>
 
