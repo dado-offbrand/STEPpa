@@ -49,7 +49,7 @@ class gait:
             #x, y, z = tp.cycle() # old gait sys
             #x, y, z = tp.cycle2(-0.09, 0.09, -0.045435, 0.07, -0.22, -0.22) # new gait sys rand point
             
-            #x, y, z = tp.cycle2(-0.09, 0.09, 0.045435, 0.045435, -0.22, -0.22) # new gait sys actual walking point janky walking point
-            x, y, z = tp.cycle2(-0.03, 0.03, 0.045435, 0.045435, -0.22, -0.22) # new gait sys testing walkingpoint
+            x, y, z = tp.cycle2(0.0, 0.06, 0.045435, 0.045435, -0.22, -0.22) # new gait sys actual walking point janky walking point
+            #x, y, z = tp.cycle2(-0.03, 0.03, 0.045435, 0.045435, -0.22, -0.22) # new gait sys testing walkingpoint
             targets.append((x * self.forward_vector, y, z))
         return targets

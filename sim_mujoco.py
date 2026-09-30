@@ -45,21 +45,21 @@ with mujoco.viewer.launch_passive(model, data) as viewer:
 
             # Shoulders
             data.ctrl[0] = positions[0]
-            data.ctrl[3] = positions[1]
-            data.ctrl[6] = positions[2]
-            data.ctrl[9] = positions[3]
+            #data.ctrl[3] = positions[1]
+            #data.ctrl[6] = positions[2]
+            #data.ctrl[9] = positions[3]
 
             # Upper legs
             data.ctrl[1] = positions[4]
-            data.ctrl[4] = positions[5]
-            data.ctrl[7] = positions[6]
-            data.ctrl[10] = positions[7]
+            #data.ctrl[4] = positions[5]
+            #data.ctrl[7] = positions[6]
+            #data.ctrl[10] = positions[7]
 
             # Lower legs
             data.ctrl[2] = positions[8]
-            data.ctrl[5] = positions[9]
-            data.ctrl[8] = positions[10]
-            data.ctrl[11] = positions[11]
+            #data.ctrl[5] = positions[9]
+            #data.ctrl[8] = positions[10]
+            #data.ctrl[11] = positions[11]
 
             last_control_time = data.time
 

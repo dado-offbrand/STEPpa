@@ -80,7 +80,6 @@ class CycloidTrajectory3D:
         t = self.phase % 1.0
 
         # swing phase (straight line)
-        #if t < self.duty_cycle:
         if t < self.duty_cycle:
             u = t / self.duty_cycle
             x = x1 + (x2 - x1) * u
