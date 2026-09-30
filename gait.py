@@ -2,14 +2,14 @@ import trajectory
 
 class gait:
     def __init__(self, quad):
-        # self.back_left_tp = trajectory.CycloidTrajectory(0, 0, -0.01)
-        # self.front_right_tp = trajectory.CycloidTrajectory(0, 0, -0.03)
-        # self.back_right_tp = trajectory.CycloidTrajectory(0.5, 0, -0.01)
-        # self.front_left_tp = trajectory.CycloidTrajectory(0.5, 0, -0.03)
-        self.back_left_tp = trajectory.CycloidTrajectory3D(0, 0, -0.01)
-        self.front_right_tp = trajectory.CycloidTrajectory3D(0, 0, -0.03)
-        self.back_right_tp = trajectory.CycloidTrajectory3D(0.6, 0, -0.01)
-        self.front_left_tp = trajectory.CycloidTrajectory3D(0.6, 0, -0.03)
+        # self.back_left_tp = trajectory.CycloidTrajectory3D(0, 0, -0.01)
+        # self.front_right_tp = trajectory.CycloidTrajectory3D(0, 0, -0.03)
+        # self.back_right_tp = trajectory.CycloidTrajectory3D(0.6, 0, -0.01)
+        # self.front_left_tp = trajectory.CycloidTrajectory3D(0.6, 0, -0.03)
+        self.back_left_tp = trajectory.CycloidTrajectory3D(0, 0, -0.05)
+        self.front_right_tp = trajectory.CycloidTrajectory3D(0, 0, -0.1)
+        self.back_right_tp = trajectory.CycloidTrajectory3D(0.6, 0, -0.05)
+        self.front_left_tp = trajectory.CycloidTrajectory3D(0.6, 0, -0.1)
         self.tps = [
             self.front_left_tp, 
             self.front_right_tp, 
