@@ -129,15 +129,15 @@
     </default>
 
     <default class="lower_front">
-      <position gear="1" kp="80" kv="2.5" ctrlrange="-3.14 3.14" ctrllimited="true"/>/>
+      <position gear="1" kp="100" kv="2.5" ctrlrange="-3.14 3.14" ctrllimited="true"/>/>
     </default>
 
     <default class="upper_back">
-      <position gear="1" kp="190" kv="2.5" ctrlrange="-3.14 3.14" ctrllimited="true"/>/>
+      <position gear="1" kp="210" kv="2.5" ctrlrange="-3.14 3.14" ctrllimited="true"/>/>
     </default>
 
     <default class="lower_back">
-      <position gear="1" kp="110" kv="2.5" ctrlrange="-3.14 3.14" ctrllimited="true"/>/>
+      <position gear="1" kp="210" kv="2.5" ctrlrange="-3.14 3.14" ctrllimited="true"/>/>
     </default>
   </default>
 

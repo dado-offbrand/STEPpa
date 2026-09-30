@@ -6,7 +6,8 @@ class CycloidTrajectory:
         self.START_X = -0.09
         self.END_X = 0.09 + forward_offset # this will lead to a bug where you cannot turn moving backwards
         self.Z_BASE = -0.22 + height_offset # default of 0 for back legs
-        self.STEP_HEIGHT = 0.025
+        #self.STEP_HEIGHT = 0.025
+        self.STEP_HEIGHT = 0.05
 
         self.dt = 0.01
         self.phase = 0.0 + phase_offset
@@ -41,8 +42,18 @@ class CycloidTrajectory:
         return x, 0.045435, z  # y fixed temporarily
 
     def debug_dump(self, steps=200):
+        step_points = []
+        
         for _ in range(steps):
-            print(self.cycle())
+            point = self.cycle()
+            print(point)
+            step_points.append(f'({point[0]}, {point[1]}, {str(point[2])})')
+            #input()
+            #print(self.cycle())
+
+        with open ('points.txt', 'w') as f:
+            for point in step_points:
+                f.write(f'{point}\n')
 
 class CycloidTrajectory3D:
     def __init__(self, phase_offset, forward_offset, height_offset):
@@ -70,7 +81,7 @@ class CycloidTrajectory3D:
 
         # swing phase (straight line)
         #if t < self.duty_cycle:
-        if t > self.duty_cycle:
+        if t < self.duty_cycle:
             u = t / self.duty_cycle
             x = x1 + (x2 - x1) * u
             y = y1 + (y2 - y1) * u
@@ -132,5 +143,5 @@ class CycloidTrajectory3D:
                 f.write(f'{point}\n')
 
 if __name__=='__main__':
-    t = CycloidTrajectory3D(0.0, 0.0, 0.0)
+    t = CycloidTrajectory3D(0.6, 0.0, -0.01)
     t.debug_dump()
