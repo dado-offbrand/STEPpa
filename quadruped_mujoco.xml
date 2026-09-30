@@ -24,6 +24,7 @@
   <worldbody>
     <body name="robot_chassis" pos="0 0 0.5">
     <!-- gravity joint -->
+    <!--<freejoint name="root"/>-->
     <freejoint name="root"/>
     
     <geom pos="0 0 0" quat="1 0 0 0" type="mesh" rgba="0.7 0.7 0.7 1" mesh="base_link"/>
@@ -121,23 +122,23 @@
     <!-- ctrllimited="true" ctrlrange="-3.14 3.14" gainprm="100" biasprm="0 -100 -1"/> -->
     <!-- ctrlrange="-3.14 3.14" ctrllimited="true"/> -->
     <default class="shoulder">
-      <position gear="1" kp="250" kv="3" ctrlrange="-3.14 3.14" ctrllimited="true"/>/>
+      <position gear="1" kp="300" kv="3" ctrlrange="-3.14 3.14" ctrllimited="true"/>
     </default>
 
     <default class="upper_front">
-      <position gear="1" kp="250" kv="3" ctrlrange="-3.14 3.14" ctrllimited="true"/>/>
+      <position gear="1" kp="300" kv="3" ctrlrange="-3.14 3.14" ctrllimited="true"/>
     </default>
 
     <default class="lower_front">
-      <position gear="1" kp="250" kv="3" ctrlrange="-3.14 3.14" ctrllimited="true"/>/>
+      <position gear="1" kp="300" kv="3" ctrlrange="-3.14 3.14" ctrllimited="true"/>
     </default>
 
     <default class="upper_back">
-      <position gear="1" kp="250" kv="3" ctrlrange="-3.14 3.14" ctrllimited="true"/>/>
+      <position gear="1" kp="300" kv="3" ctrlrange="-3.14 3.14" ctrllimited="true"/>
     </default>
 
     <default class="lower_back">
-      <position gear="1" kp="250" kv="3" ctrlrange="-3.14 3.14" ctrllimited="true"/>/>
+      <position gear="1" kp="300" kv="3" ctrlrange="-3.14 3.14" ctrllimited="true"/>
     </default>
   </default>
 

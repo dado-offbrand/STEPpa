@@ -2,10 +2,10 @@ import trajectory
 
 class gait:
     def __init__(self, quad):
-        self.back_left_tp = trajectory.CycloidTrajectory3D(0, 0, -0.05)
-        self.front_right_tp = trajectory.CycloidTrajectory3D(0, 0, -0.1)
-        self.back_right_tp = trajectory.CycloidTrajectory3D(0.6, 0, -0.05)
-        self.front_left_tp = trajectory.CycloidTrajectory3D(0.6, 0, -0.1)
+        self.back_left_tp = trajectory.CycloidTrajectory3D(0, 0, -1)
+        self.front_right_tp = trajectory.CycloidTrajectory3D(0, 0, -1)
+        self.back_right_tp = trajectory.CycloidTrajectory3D(0.5, 0, -1.2)
+        self.front_left_tp = trajectory.CycloidTrajectory3D(0.5, 0, -1.2)
         self.tps = [
             self.front_left_tp, 
             self.front_right_tp, 
@@ -42,10 +42,7 @@ class gait:
     def cycle(self):
         targets = []
         for tp in self.tps:
-            #x, y, z = tp.cycle() # old gait sys
-            #x, y, z = tp.cycle2(-0.09, 0.09, -0.045435, 0.07, -0.22, -0.22) # new gait sys rand point
             
-            x, y, z = tp.cycle2(0.0, 0.06, 0.045435, 0.045435, -0.22, -0.22) # new gait sys actual walking point janky walking point
-            #x, y, z = tp.cycle2(-0.03, 0.03, 0.045435, 0.045435, -0.22, -0.22) # new gait sys testing walkingpoint
+            x, y, z = tp.cycle2(-0.03, 0.03, 0.045435, 0.045435, -0.22, -0.22) # new gait sys actual walking point janky walking point
             targets.append((x * self.forward_vector, y, z))
         return targets
