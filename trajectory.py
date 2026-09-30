@@ -28,9 +28,12 @@ class CycloidTrajectory3D:
         # swing phase (straight line)
         if t < self.duty_cycle:
             u = t / self.duty_cycle
-            x = x1 + (x2 - x1) * u
-            y = y1 + (y2 - y1) * u
-            z = z1 + (z2 - z1) * u
+            # x = x1 + (x2 - x1) * u
+            # y = y1 + (y2 - y1) * u
+            # z = z1 + (z2 - z1) * u
+            x = x2 + (x1 - x2) * u
+            y = y2 + (y1 - y2) * u
+            z = z2 + (z1 - z2) * u
             #print('straight')
         else:
             # swing phase (cycloidal step)
