@@ -3,6 +3,7 @@ import mujoco
 import mujoco.viewer
 import quadruped
 import numpy as np
+import keyboard
 
 # URDF loading
 model = mujoco.MjModel.from_xml_path('quadruped_mujoco.xml')
@@ -30,9 +31,27 @@ with mujoco.viewer.launch_passive(model, data) as viewer:
     print("Running sim")
     last_control_time = data.time
     last_render_time = time.time()
+    quad.gait_planner.forward_vector = 0
 
     while viewer.is_running():
         step_start = time.time()
+
+        #
+        # Set quadruped movement vector
+        #
+        if (keyboard.is_pressed('up')):
+            quad.gait_planner.forward_vector = 1
+        elif (keyboard.is_pressed('down')):
+            quad.gait_planner.forward_vector = -1
+        elif not quad.gait_planner.forward_vector == 0:
+            quad.gait_planner.forward_vector = 0
+
+        if (keyboard.is_pressed('left')):
+            quad.gait_planner.side_vector = -1
+        elif (keyboard.is_pressed('right')):
+            quad.gait_planner.side_vector = 1
+        elif not quad.gait_planner.side_vector == 0:
+            quad.gait_planner.side_vector = 0
 
         #
         # Set simulation data every CONTROL_INTERVAL_MS ms
