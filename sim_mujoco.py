@@ -9,7 +9,7 @@ model = mujoco.MjModel.from_xml_path('quadruped_mujoco.xml')
 data = mujoco.MjData(model)
 
 # Time guff
-CONTROL_INTERVAL_MS = 10.0 # run every x miliseconds
+CONTROL_INTERVAL_MS = 3.5 # run every x miliseconds
 control_dt = CONTROL_INTERVAL_MS / 1000.0  # convert to seconds
 
 # Custom class guff
@@ -35,7 +35,7 @@ with mujoco.viewer.launch_passive(model, data) as viewer:
         step_start = time.time()
 
         #
-        # Set simulation data every 10 ms
+        # Set simulation data every CONTROL_INTERVAL_MS ms
         #
         if (data.time - last_control_time) >= control_dt:
             targets = quad.gait_planner.cycle()
