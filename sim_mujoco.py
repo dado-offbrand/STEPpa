@@ -43,6 +43,13 @@ with mujoco.viewer.launch_passive(model, data) as viewer:
         elif not quad.gait_planner.side_vector == 0:
             quad.gait_planner.side_vector = 0
 
+        if (keyboard.is_pressed('q')):
+            quad.gait_planner.rotational_vector = -1
+        elif (keyboard.is_pressed('e')):
+            quad.gait_planner.rotational_vector = 1
+        elif not quad.gait_planner.rotational_vector == 0:
+            quad.gait_planner.rotational_vector = 0
+
         #
         # Set simulation data every CONTROL_INTERVAL_MS ms
         #
