@@ -15,34 +15,41 @@ class gait:
 
         self.forward_vector = 0
         self.side_vector = 0
+        self.stride = 0.03
 
         self.quad = quad
 
-    # Cycle targets for x movement only
-    def get_x_ctargs(self):
-        return [
-            [-0.03, 0.03, 0.045435, 0.045435], # front left
-            [-0.03, 0.03, 0.045435, 0.045435], # front right
-            [-0.03, 0.03, 0.045435, 0.045435], # back left
-            [-0.03, 0.03, 0.045435, 0.045435] # back right
-        ]
+    def get_xy_ctargs(self):
+        # current stride
+        cstride = 0 if self.forward_vector==0 and self.side_vector==0 else self.stride
 
-    # Cycle targets for y movement only
-    def get_y_ctargs(self):
-        return [
-            [0.0, 0.0, 0.045435, 0.045435], # front left
-            [0.0, 0.0, 0.045435, 0.045435], # front right
-            [0.0, 0.0, 0.045435, 0.045435], # back left
-            [0.0, 0.0, 0.045435, 0.045435] # back right
-        ]
+        # directly under shoulder
+        base_y = 0.045435
+        base_x = 0.0
 
-    # Cycle targets for zero movement but still trotting
-    def get_no_ctargs(self):
+        # LEFT/RIGHT MOVEMENT   
+        # NOTE logically, stride of 0 results in no y movement     
+        stride_y = cstride * self.side_vector 
+        
+        # left legs
+        left_start = base_y - stride_y
+        left_end = base_y + stride_y
+        
+        # right legs
+        right_start = base_y + stride_y
+        right_end = base_y - stride_y
+
+        # FORWARD/BACkWARD MOVEMENT
+        stride_x = cstride * self.forward_vector
+
+        front_start = base_x - stride_x
+        front_end = base_x + stride_x
+
         return [
-            [0.0, 0.0, 0.045435, 0.045435], # front left
-            [0.0, 0.0, 0.045435, 0.045435], # front right
-            [0.0, 0.0, 0.045435, 0.045435], # back left
-            [0.0, 0.0, 0.045435, 0.045435] # back right
+            [front_start, front_end, left_start, left_end], # front left
+            [front_start, front_end, right_start, right_end], # front right
+            [front_start, front_end, right_start, right_end], # back left
+            [front_start, front_end, left_start, left_end] # back right
         ]
 
     # Returns the targets after one gait cycle
@@ -51,27 +58,9 @@ class gait:
 
         i = 0
         for tp in self.tps:
-            print(self.forward_vector)
-            print(self.side_vector)
-            if (not self.forward_vector==0 and self.side_vector==0):
-                #print('opt1')
-                ctargs = self.get_x_ctargs()
-            elif (self.forward_vector==0 and not self.side_vector == 0):
-                #print('opt2')
-                ctargs = self.get_y_ctargs()
-            elif (self.forward_vector == 0 and self.side_vector == 0):
-                #print('opt3')
-                ctargs = self.get_x_ctargs()
-            else:
-                print('opt4 not done yet')
-                continue
-            
+            ctargs = self.get_xy_ctargs()
             x, y, z = tp.cycle2(ctargs[i][0], ctargs[i][1], ctargs[i][2], ctargs[i][3], tp.Z_BASE, tp.Z_BASE)
-            # if (not self.side_vector == 0):
-            #     targets.append((x * self.forward_vector, y if i==3 or i==4 else y*self.side_vector, z))
-            # else:
-            #     targets.append((x * self.forward_vector, y, z * self.side))
-            targets.append((x * self.forward_vector, y, z * self.side_vector))
+            targets.append((x, y, z))
             i += 1
 
         return targets
