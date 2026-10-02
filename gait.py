@@ -13,36 +13,54 @@ class gait:
             self.back_right_tp
         ]
 
-        self.FORWARD = 1
-        self.BACKWARD = -1
-        self.RIGHT = 2
-        self.LEFT = -2
-
-        self.forward_vector = 1
-        #self.rotational_vector = 1 # how much further the left/right extends
+        self.forward_vector = 0
+        self.side_vector = 0
+        self.stride = 0.03
 
         self.quad = quad
 
-    def set_vector(self, direction):
-        match direction:
-            case 1:
-                self.forward_vector = 1
-                self.side_vector = 0
-            case -1:
-                self.forward_vector = -1
-                self.side_vector = 0
-            case 2:
-                self.forward_vector = 0
-                self.side_vector = 1
-            case -2:
-                self.forward_vector = 0
-                self.side_vector = -1
+    def get_xy_ctargs(self):
+        # current stride
+        cstride = 0 if self.forward_vector==0 and self.side_vector==0 else self.stride
+
+        # directly under shoulder
+        base_y = 0.045435
+        base_x = 0.0
+
+        # LEFT/RIGHT MOVEMENT   
+        # NOTE logically, stride of 0 results in no y movement     
+        stride_y = cstride * self.side_vector 
+        
+        # left legs
+        left_start = base_y - stride_y
+        left_end = base_y + stride_y
+        
+        # right legs
+        right_start = base_y + stride_y
+        right_end = base_y - stride_y
+
+        # FORWARD/BACkWARD MOVEMENT
+        stride_x = cstride * self.forward_vector
+
+        front_start = base_x - stride_x
+        front_end = base_x + stride_x
+
+        return [
+            [front_start, front_end, left_start, left_end], # front left
+            [front_start, front_end, right_start, right_end], # front right
+            [front_start, front_end, right_start, right_end], # back left
+            [front_start, front_end, left_start, left_end] # back right
+        ]
 
     # Returns the targets after one gait cycle
     def cycle(self):
         targets = []
+
+        i = 0
         for tp in self.tps:
-            
-            x, y, z = tp.cycle2(-0.03, 0.03, 0.045435, 0.045435, tp.Z_BASE, tp.Z_BASE) # new gait sys actual walking point janky walking point
-            targets.append((x * self.forward_vector, y, z))
+            ctargs = self.get_xy_ctargs()
+            x, y, z = tp.cycle2(ctargs[i][0], ctargs[i][1], ctargs[i][2], ctargs[i][3], tp.Z_BASE, tp.Z_BASE)
+            targets.append((x, y, z))
+            i += 1
+
         return targets
