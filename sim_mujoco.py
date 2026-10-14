@@ -15,16 +15,6 @@ control_dt = CONTROL_INTERVAL_MS / 1000.0  # convert to seconds
 
 # Custom class guff
 quad = quadruped.Quadruped()
-#gui = sim_ui.TargetUI(quad.get_target_tuples())
-
-    # TODO:
-    # Init pose from quadruped's array, not this manual stuff.
-    # Continue to adjust kp/kv. Limbs are too slow to ease into final position
-    # Why does it seem like joint positions affect other joint positions when moving?
-    # Test cycloidal trajectory on one leg ig
-
-    # NOTE:
-    # All limbs are now controllable
 
 # Launch viewer
 with mujoco.viewer.launch_passive(model, data) as viewer:
@@ -52,6 +42,13 @@ with mujoco.viewer.launch_passive(model, data) as viewer:
             quad.gait_planner.side_vector = 1
         elif not quad.gait_planner.side_vector == 0:
             quad.gait_planner.side_vector = 0
+
+        if (keyboard.is_pressed('q')):
+            quad.gait_planner.rotational_vector = -1
+        elif (keyboard.is_pressed('e')):
+            quad.gait_planner.rotational_vector = 1
+        elif not quad.gait_planner.rotational_vector == 0:
+            quad.gait_planner.rotational_vector = 0
 
         #
         # Set simulation data every CONTROL_INTERVAL_MS ms

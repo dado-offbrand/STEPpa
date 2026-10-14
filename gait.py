@@ -3,9 +3,9 @@ import trajectory
 class gait:
     def __init__(self, quad):
         self.back_left_tp = trajectory.CycloidTrajectory3D(0, 0, 0.01)
-        self.front_right_tp = trajectory.CycloidTrajectory3D(0, 0, 0.005)
+        self.front_right_tp = trajectory.CycloidTrajectory3D(0, 0, 0.01)
         self.back_right_tp = trajectory.CycloidTrajectory3D(0.5, 0, 0.01)
-        self.front_left_tp = trajectory.CycloidTrajectory3D(0.5, 0, 0.005)
+        self.front_left_tp = trajectory.CycloidTrajectory3D(0.5, 0, 0.01)
         self.tps = [
             self.front_left_tp, 
             self.front_right_tp, 
@@ -15,7 +15,9 @@ class gait:
 
         self.forward_vector = 0
         self.side_vector = 0
+        self.rotational_vector = 0
         self.stride = 0.03
+        self.rotational_stride = 0.03
 
         self.quad = quad
 
@@ -43,13 +45,21 @@ class gait:
         stride_x = cstride * self.forward_vector
 
         front_start = base_x - stride_x
-        front_end = base_x + stride_x
+        front_end_left = base_x + stride_x
+        front_end_right = base_x + stride_x
+
+        if (self.rotational_vector == -1):
+            front_end_left += (self.rotational_stride)
+            front_end_right -= (self.rotational_stride)
+        elif (self.rotational_vector == 1):
+            front_end_left -= (self.rotational_stride)
+            front_end_right += (self.rotational_stride)
 
         return [
-            [front_start, front_end, left_start, left_end], # front left
-            [front_start, front_end, right_start, right_end], # front right
-            [front_start, front_end, right_start, right_end], # back left
-            [front_start, front_end, left_start, left_end] # back right
+            [front_start, front_end_left, left_start, left_end], # front left
+            [front_start, front_end_right, right_start, right_end], # front right
+            [front_start, front_end_left, right_start, right_end], # back left
+            [front_start, front_end_right, left_start, left_end] # back right
         ]
 
     # Returns the targets after one gait cycle

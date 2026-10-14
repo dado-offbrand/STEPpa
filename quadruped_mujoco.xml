@@ -25,8 +25,9 @@
   <worldbody>
     <body name="robot_chassis" pos="0 0 0.5">
     <freejoint name="root"/>
-    <inertial pos="0.0435 0.0675 0" mass="1.46" diaginertia="0.02 0.02 0.02"/>
-    
+    <!--<inertial pos="0.0435 0.0675 0" mass="1.46" diaginertia="0.02 0.02 0.02"/>-->
+    <inertial pos="0 0 0" mass="1.46" diaginertia="0.02 0.02 0.02"/>
+
     <geom pos="0 0 0" quat="1 0 0 0" type="mesh" rgba="0.7 0.7 0.7 1" mesh="base_link"/>
     <body name="Front_Left_Shoulder_1" pos="0.096777 -0.10552 0.071701">
       <inertial pos="0.0046394 -0.039522 1.92515e-05" quat="0.70673 0.70673 0.0230844 0.0230844" mass="0.30" diaginertia="0.00030 0.00021 0.00019"/>
