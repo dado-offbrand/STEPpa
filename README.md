@@ -27,5 +27,5 @@ reinforcement learning anytime soon.<br>
 **CAD notes:**<br>
 A lot of people have asked for the CAD files, and I myself have done that to other people posting their quadrupeds. From my own experience, having a CAD file
 to reference is nice, especially when recreating real-world hardware you don't have the STEP files for. I don't mind if people inspire their designs off of
-my mechanisms, but I want my quadruped to be unique and designed by me, so I don't want to release the full STEP files or CAD assembly of my quadruped. If
-anybody is somehow reading this and cannot understand how to create a certain mechanism, feel free to reach out to me at my instagram @ben_.ward<br>
+my mechanisms, but I want my quadruped to be unique and designed by me, so I don't want to release the full STEP files or CAD assembly of my quadruped for people to just create a 1:1 clone of. It's weird to gatekeep it, but it has been a lot of hard work. If
+anybody is somehow reading this and cannot understand how to recreate a certain mechanism, feel free to reach out to me at my instagram @ben_.ward<br>
