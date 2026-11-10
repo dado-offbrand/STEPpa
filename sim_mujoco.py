@@ -16,7 +16,27 @@ control_dt = CONTROL_INTERVAL_MS / 1000.0  # convert to seconds
 # Custom class guff
 quad = quadruped.Quadruped()
 
-# Launch viewer
+# Initialize server connection to quadruped
+
+# Manual zero sequence for the quadruped
+print("Press enter to set mechanical zero for front left leg...")
+input()
+# do that here
+
+print("press enter to set mechanical zero for front right leg...")
+input()
+# do that here
+
+
+print("press enter to set mechanical zero for back left leg...")
+input()
+# do that here
+
+print("press enter to set mechanical zero for back right leg...")
+input()
+# do that here
+
+# Launch viewer for mujoco sim
 with mujoco.viewer.launch_passive(model, data) as viewer:
     print("Running sim")
     last_control_time = data.time
@@ -76,6 +96,8 @@ with mujoco.viewer.launch_passive(model, data) as viewer:
             data.ctrl[8] = positions[10]
             data.ctrl[11] = positions[11]
 
+            # Transmit positions to the quadruped
+
             last_control_time = data.time
 
         mujoco.mj_step(model, data)
@@ -90,3 +112,14 @@ with mujoco.viewer.launch_passive(model, data) as viewer:
         time_until_next_step = model.opt.timestep - (time.time() - step_start)
         if time_until_next_step > 0:
             time.sleep(time_until_next_step)
+
+# TODO
+# make this send the commands its sending to the sim to a flask server
+# that is hosted on the RPI that specifically just recieves angles and
+# makes the quadruped rotate to them.
+# also add a command to zero the quadruped before the simulation starts
+# 
+# maybe look into making the get pose array function just match the simulation
+# and have a map resposible for mapping joint name to index just for reference
+# and still use ahrdcoded values. This would make all of the translating less 
+# confusing maybe?
