@@ -49,11 +49,11 @@ impl Quadruped {
         let bl_p = self.back_left.get_pose();
         let br_p = self.back_right.get_pose();
 
-        let pose: [f32; 12] = {
+        let pose: [f32; 12] = [
             fl_p.0, fr_p.0, bl_p.0, br_p.0,
             fl_p.1, fr_p.1, bl_p.1, br_p.1,
             fl_p.2, fr_p.2, bl_p.2, br_p.2,
-        }
+        ]
 
         return pose
     }
