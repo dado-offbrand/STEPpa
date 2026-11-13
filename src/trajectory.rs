@@ -35,6 +35,7 @@ struct CycloidTrajectory3D {
 
 impl CycloidTrajectory3D {
     pub const START_X: f32 = -0.09;
+    pub const PI: f32 = std::f32::consts::PI;
     
     pub fn new(phase_offset: f32, forward_offset: f32, height_offset: f32) -> Self {
         CycloidTrajectory3D {
@@ -79,7 +80,7 @@ impl CycloidTrajectory3D {
 
             z = (1.0 - u) * z1 
             + u * z2 
-            + A * (1.0 - (2.0 * std::f32::consts::PI * u).cos()) / 2.0;
+            + A * (1.0 - (2.0 * CycloidTrajectory3D::PI * u).cos()) / 2.0;
         }
 
         self.phase += self.dt;
