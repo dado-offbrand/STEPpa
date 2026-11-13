@@ -4,7 +4,7 @@ mod test {
     use super::*;
 
     #[test]
-    pub fn debug_dump() {
+    pub fn trajectory_dump() {
         let mut step_points: [(f32, f32, f32); 199] = [(0.0, 0.0, 0.0); 199];
         let mut trajectory: CycloidTrajectory3D = CycloidTrajectory3D::new(0.0, 0.0, 0.1);
 
@@ -76,11 +76,11 @@ impl CycloidTrajectory3D {
             x = x1 + (x2 - x1) * u;
             y = y1 + (y2 - y1) * u;
 
-            let A: f32 = self.step_height;
+            let a: f32 = self.step_height;
 
             z = (1.0 - u) * z1 
             + u * z2 
-            + A * (1.0 - (2.0 * CycloidTrajectory3D::PI * u).cos()) / 2.0;
+            + a * (1.0 - (2.0 * CycloidTrajectory3D::PI * u).cos()) / 2.0;
         }
 
         self.phase += self.dt;

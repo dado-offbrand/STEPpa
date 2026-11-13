@@ -7,7 +7,7 @@ struct Quadruped {
     front_right: Leg,
     back_right: Leg,
     legs: [Leg; 4],
-    //gait_planner =
+    gait_planner: Gait,
     movement_vector: i32,
 }
 
