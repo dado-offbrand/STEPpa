@@ -1,6 +1,24 @@
 mod ik;
 mod gait;
 
+/*
+The pose is stored as an array of radians
+The targets are stored as an array of 3d cartesian tuples
+*/
+
+#[cfg(test)]
+mod test2 {
+    use std::fs;
+    use super::*;
+
+    #[test]
+    pub fn quadruped_init() {
+        let quad = Quadruped::new();
+
+        //fs::write("points.txt", format!("{:?}", step_points));
+    }
+}
+
 struct Quadruped {
     back_left: Leg,
     front_left: Leg,
@@ -38,10 +56,10 @@ impl Quadruped {
         self.back_right.update_pose(br_s, br_u, br_l);
     }
 
-    pub fn get_target_tuples(&self) -> .. {
+    /*pub fn get_target_tuples(&self) -> .. {
         // DO NOT IMPLEMENT.
         // Phase out this function, it was unused in the python script.
-    }
+    }*/
 
     pub fn get_pose_array(self) -> [f32; 12] {
         let fl_p = self.front_left.get_pose();
@@ -72,7 +90,7 @@ impl Leg {
     // str instead of String. raw literals used for
     // new values
     pub fn new(group: &str) -> Self {
-        let pose: [f32; 3] = [0, ik::UN, ik::LN];
+        let pose: [f32; 3] = [0.0, ik::UN, ik::LN];
         let targs = ik::leg_ik(pose[0], pose[1], pose[2]);
         
         Leg {
@@ -84,28 +102,40 @@ impl Leg {
         }
     }
 
-    pub fn set_foot_target(&mut self, x:f32, y:f32, z:f32) {
+    // Sets foot target position
+    /*pub fn set_foot_target(&mut self, x:f32, y:f32, z:f32) {
         self.targ_x = x;
         self.targ_y = y;
         self.targ_z = z;
-    }
+    }*/ // this function is alrgely unused
 
-    // Sets foot target position
+    // Gets foot target position
     pub fn get_foot_target(&self) -> (f32, f32, f32) {
         return (self.targ_x, self.targ_y, self.targ_z);
     }
 
     // Updates pose based off of target position
-    pub fn update_pose(&mut self) {
+    /*pub fn update_pose(&mut self) {
         let targs = ik::leg_ik(self.targ_x, self.targ_y, self.targ_z);
         self.pose[0] = targs.0;
         self.pose[1] = targs.1;
         self.pose[2] = targs.2;
+
+        // TODO
+        // should this take in args to udpate pose to set positions, or should it update
+        // from set_foot_target then update pose? I feel like there may need to be an
+        // all in one function here
+    }*/
+
+    pub fn update_pose(&mut self, targ_x:f32, targ_y:f32, targ_z:f32) {
+        self.pose[0] = targ_x;
+        self.pose[1] = targ_y;
+        self.pose[2] = targ_z;
     }
 
     // Get (a copy of) current pose
-    //pub fn get_pose(&self) -> .. {
-    //    
-    //}
+    pub fn get_pose(&self) -> [f32; 3] {
+        return self.pose;    
+    }
     // edit code to omit this, it's useless in rust as arrays are treated differently
 }

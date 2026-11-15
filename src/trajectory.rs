@@ -17,10 +17,11 @@ mod test {
             step_points[i] = point;
         }
 
-        fs::write("points.txt", format!("{:?}", step_points));
+        let _ = fs::write("points.txt", format!("{:?}", step_points));
     }
 }
 
+#[allow(unused)]
 struct CycloidTrajectory3D {
     start_x: f32,
     end_x: f32,
@@ -33,6 +34,7 @@ struct CycloidTrajectory3D {
     duty_cycle: f32,
 }
 
+#[allow(unused)]
 impl CycloidTrajectory3D {
     pub const START_X: f32 = -0.09;
     pub const PI: f32 = std::f32::consts::PI;
@@ -79,7 +81,7 @@ impl CycloidTrajectory3D {
             let a: f32 = self.step_height;
 
             z = (1.0 - u) * z1 
-            + u * z2 
+            + u * z2
             + a * (1.0 - (2.0 * CycloidTrajectory3D::PI * u).cos()) / 2.0;
         }
 
