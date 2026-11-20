@@ -22,7 +22,7 @@ mod test {
 }
 
 #[allow(unused)]
-struct CycloidTrajectory3D {
+pub struct CycloidTrajectory3D {
     start_x: f32,
     end_x: f32,
     start_y: f32,
@@ -38,6 +38,7 @@ struct CycloidTrajectory3D {
 impl CycloidTrajectory3D {
     pub const START_X: f32 = -0.09;
     pub const PI: f32 = std::f32::consts::PI;
+    // ^ makes code more readable for refs to PI
     
     pub fn new(phase_offset: f32, forward_offset: f32, height_offset: f32) -> Self {
         CycloidTrajectory3D {
@@ -53,6 +54,7 @@ impl CycloidTrajectory3D {
         }
     }
 
+    // Sets offset for adjusting gait trajectory or phase
     pub fn set_offsets(&mut self, phase_offset: f32, forward_offset: f32, height_offset:f32) {
         self.phase = 0.0 + phase_offset;
         self.end_x = 0.0 + forward_offset;
@@ -60,6 +62,8 @@ impl CycloidTrajectory3D {
         // the 0.0 + offset originated from python to assure it was a float. probably not needed in rust, right?
     }
 
+    // Every time this function is called, the trajectory is cycled one step on 
+    // a phase (not a physical step, like a time step)
     pub fn cycle (&mut self, x1: f32, x2: f32, y1: f32, y2: f32, z1: f32, z2: f32) -> (f32, f32, f32) {
         let t: f32 = self.phase % 1.0;
         let x: f32;

@@ -36,7 +36,6 @@ impl Quadruped {
             front_left: Leg::new("Front Left"),
             front_right: Leg::new("Front Right"),
             back_right: Leg::new("Back Right"),
-            gait_planner: Gait::new(&self) // can I do this?? probably not. 
             movement_vector: 1,
         }
     }

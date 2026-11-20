@@ -11,15 +11,14 @@ const L2: f32 = LOWER_LEG_LENGTH; // pulley to center of foot distance
 pub const UN: f32 = -45.0_f32.to_radians(); // upper neutral angle
 pub const LN: f32 = -90.0_f32.to_radians(); // lower neutral angle
 
+// Input: (x, y, z) foot position in the shoulder joint's local frame (metres).
+//        +x  forward,  +y  outward (positive for left, negative for right),  +z  up
+// Output: (theta_shoulder, theta_upper, theta_lower) in radians.
 pub fn leg_ik(x:f32, y:f32, z:f32) -> Result<(f32, f32, f32), String> {
-    /// Input: (x, y, z) foot position in the shoulder joint's local frame (metres).
-    ///        +x  forward,  +y  outward (positive for left, negative for right),  +z  up
-    /// Output: (theta_shoulder, theta_upper, theta_lower) in radians.
-
     // Shoulder (abduction / adduction)
     let r_yz = y.hypot(z);
     if r_yz < D {
-        return Err(format!("Target too close to body axis: r_yz={:.4f} < d={:.4f}", r_yz, D));
+        return Err(format!("Target too close to body axis: r_yz={} < d={}", r_yz, D));
     }
     let theta_shoulder = y.atan2(-z) - D.atan2((r_yz.powi(2) - D.powi(2)).sqrt());
 
@@ -30,10 +29,10 @@ pub fn leg_ik(x:f32, y:f32, z:f32) -> Result<(f32, f32, f32), String> {
     let r = x.hypot(l_vert);
     
     if r > L1 + L2 {
-        return Err(format!("Target unreachable: R={:.4f} > max reach {:.4f}", r, L1 + L2));
+        return Err(format!("Target unreachable: R={} > max reach {}", r, L1 + L2));
     }
     if r < (L1 - L2).abs() {
-        return Err(format!("Target unreachable: R={:.4f} < min reach {:.4f}", r, (L1 - L2).abs()));
+        return Err(format!("Target unreachable: R={} < min reach {}", r, (L1 - L2).abs()));
     }
 
     // Knee angle (law of cosines); negate for the -X lower-joint axis
@@ -62,18 +61,17 @@ pub fn leg_fk(theta_shoulder:f32, theta_upper:f32, theta_lower:f32) -> (f32, f32
     return (x, y, z)
 }
 
+/// Returns angles for neutral pose
+/// Joint order: Back Left, Front Left, Front Right, Back Right (per group)
+/// Indices:     0          1            2             3           (shoulders)
+///              4          5            6             7           (uppers)
+///              8          9            10            11          (lowers)
 pub fn get_pose_neutral() -> [f32; 12] {
-    /// Returns angles for neutral pose
-    /// Joint order: Back Left, Front Left, Front Right, Back Right (per group)
-    /// Indices:     0          1            2             3           (shoulders)
-    ///              4          5            6             7           (uppers)
-    ///              8          9            10            11          (lowers)
-
     let angles: [f32; 12] = [
-        0, 0, 0, 0,
+        0.0, 0.0, 0.0, 0.0,
         UN, UN, UN, UN,
         LN, LN, LN, LN,
-    ]
+    ];
 
     return angles
 }
