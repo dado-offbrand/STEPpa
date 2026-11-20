@@ -1,2 +1,6 @@
 /__pycache__
 points.txt
+
+# Added by cargo
+
+/target

@@ -1,0 +1,15 @@
+Parts of quadruped class and their responsibility
+Quadruped: Holds all information as one big class
+    Legs: Responsible for storing current pose/targs of leg, as well as calculating its
+    own IK
+        CycloidTrajectory3D: EACH LEG SHOULD HAVE ITS OWN CYCLOID TRAJECTORY UNDER ITSELF. HELLO?
+    Gait Planner: The gait planner needs to interact with all legs, therefore it should be under the
+    quadruped. But can't it be an actual PART of the quadruped class instead of avoid having to alias
+    the jorts off of my code? It would also put the motion vectors directly under the quadruped
+    which is much more desirable, right???
+IK: Standalone non-instantiable IK class meant to just have the function to calc IK. This
+code doesn't need to be copied 4 times in memory on each leg, that would be kinda pointless
+
+TODO:
+Make gait part of the quadruped class including changing the struct
+Make each cycloidtrajectory3d under the leg instead of the gait.
